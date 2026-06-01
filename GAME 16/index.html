@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Twins</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     MENU SCREEN
+══════════════════════════════════════════ -->
+<div id="menu-screen">
+
+    <!-- Decorative background orbs -->
+    <div class="menu-orb menu-orb-1"></div>
+    <div class="menu-orb menu-orb-2"></div>
+
+    <div class="menu-inner">
+
+        <!-- Game Icon + Title -->
+        <div class="menu-hero">
+            <div class="menu-icon-wrap">
+                <div class="menu-icon">
+                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="10" width="20" height="14" rx="4" fill="white" fill-opacity="0.9"/>
+                        <rect x="28" y="10" width="20" height="14" rx="4" fill="white" fill-opacity="0.9"/>
+                        <rect x="4" y="28" width="20" height="14" rx="4" fill="white" fill-opacity="0.6"/>
+                        <rect x="28" y="28" width="20" height="14" rx="4" fill="white" fill-opacity="0.6"/>
+                        <path d="M24 17 L28 17" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M24 35 L28 35" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 id="title">Word Twins</h1>
+            <p class="menu-tagline">Match meanings. Master language. Train your mind.</p>
+        </div>
+
+        <!-- Cognitive Skill Badges -->
+        <div class="skill-badges">
+            <span class="skill-badge">🧠 Vocabulary</span>
+            <span class="skill-badge">⚡ Processing Speed</span>
+            <span class="skill-badge">🎯 Decision Making</span>
+            <span class="skill-badge">📚 Word Knowledge</span>
+        </div>
+
+        <!-- Two-column cards -->
+        <div class="menu-cards">
+
+            <!-- How To Play -->
+            <div class="menu-card how-to-card">
+                <div class="menu-card-header">
+                    <span class="menu-card-icon">📖</span>
+                    <h3>How To Play</h3>
+                </div>
+                <ol class="how-to-list">
+                    <li>
+                        <span class="step-num">1</span>
+                        <span>Read the <strong>target word</strong> displayed on screen.</span>
+                    </li>
+                    <li>
+                        <span class="step-num">2</span>
+                        <span>Check whether you need a <strong>SAME</strong> or <strong>OPPOSITE</strong> meaning.</span>
+                    </li>
+                    <li>
+                        <span class="step-num">3</span>
+                        <span>Press <strong class="orange-text">LEFT (Orange)</strong> or <strong class="blue-text">RIGHT (Blue)</strong> to answer.</span>
+                    </li>
+                    <li>
+                        <span class="step-num">4</span>
+                        <span>Answer before the <strong>timer</strong> runs out. Max <strong>5 mistakes!</strong></span>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Level Selection -->
+            <div class="menu-card level-card">
+                <div class="menu-card-header">
+                    <span class="menu-card-icon">🏆</span>
+                    <h3>Select Level</h3>
+                </div>
+                <div class="level-grid">
+                    <button class="level-button" data-level="0">
+                        <span class="level-btn-num">1</span>
+                        <span class="level-btn-label">Beginner</span>
+                    </button>
+                    <button class="level-button" data-level="1">
+                        <span class="level-btn-num">2</span>
+                        <span class="level-btn-label">Easy</span>
+                    </button>
+                    <button class="level-button" data-level="2">
+                        <span class="level-btn-num">3</span>
+                        <span class="level-btn-label">Medium</span>
+                    </button>
+                    <button class="level-button" data-level="3">
+                        <span class="level-btn-num">4</span>
+                        <span class="level-btn-label">Hard</span>
+                    </button>
+                    <button class="level-button" data-level="4">
+                        <span class="level-btn-num">5</span>
+                        <span class="level-btn-label">Expert</span>
+                    </button>
+                    <button class="level-button" data-level="5">
+                        <span class="level-btn-num">6</span>
+                        <span class="level-btn-label">Master</span>
+                    </button>
+                </div>
+            </div>
+
+        </div><!-- /menu-cards -->
+    </div><!-- /menu-inner -->
+</div><!-- /menu-screen -->
+
+
+<!-- ══════════════════════════════════════════
+     GAME SCREEN
+══════════════════════════════════════════ -->
+<div id="game-screen">
+
+    <!-- Game Title Bar -->
+    <div class="game-topbar">
+        <div class="game-title-area">
+            <div class="game-logo-dot"></div>
+            <h1 id="title">Word Twins</h1>
+        </div>
+        <div id="stats-bar">
+            <div class="stat-chip">
+                <span class="stat-label">SCORE</span>
+                <span id="score">0</span>
+            </div>
+            <div class="stat-chip">
+                <span class="stat-label">QUESTION</span>
+                <span id="question-number">1 / 15</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Game Card -->
+    <div id="game-card">
+
+        <!-- Top Info Row -->
+        <div id="top-info">
+            <p id="level">Level: 1</p>
+            <div id="best-score">Best Score: 0</div>
+        </div>
+
+        <!-- Mistakes Badge -->
+        <p id="mistakes">⚠️ Mistakes: 0 / 5</p>
+
+        <!-- Question Type Badge -->
+        <p id="question-type">SAME MEANING AS:</p>
+
+        <!-- Timer -->
+        <div id="timer-container">
+            <div id="timer-bar"></div>
+        </div>
+        <p id="timer-text"></p>
+
+        <!-- Target Word -->
+        <h2 id="question"></h2>
+
+        <!-- Feedback Message -->
+        <p id="message"></p>
+
+        <!-- Answer Buttons -->
+        <div id="buttons-container">
+            <button id="left-button"></button>
+            <button id="right-button"></button>
+        </div>
+
+        <!-- Button Labels -->
+        <div id="button-labels">
+            <span class="left-label">← LEFT BUTTON (ORANGE)</span>
+            <span class="right-label">RIGHT BUTTON (BLUE) →</span>
+        </div>
+
+        <!-- End-of-level controls (shown by JS) -->
+        <button id="next-level-button">Next Level →</button>
+        <button id="restart-button">↺ Restart</button>
+        <button id="menu-button">☰ Menu</button>
+
+        <!-- Final score panel (populated by JS) -->
+        <p id="final-score"></p>
+
+    </div><!-- /game-card -->
+</div><!-- /game-screen -->
+<audio id="correct-sound" src="correct.mp3"></audio>
+<audio id="wrong-sound" src="wrong.mp3"></audio>
+<audio id="level-sound" src="levelcomplete.mp3"></audio>
+<audio id="gameover-sound" src="gameover.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>

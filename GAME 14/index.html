@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Comes Next</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== MENU SCREEN ===================== -->
+<div id="menu-screen">
+
+    <!-- Decorative ambient orbs -->
+    <div class="menu-orb menu-orb-1"></div>
+    <div class="menu-orb menu-orb-2"></div>
+
+    <div class="menu-inner">
+
+        <!-- Game Icon + Title -->
+        <div class="menu-hero">
+            <div class="menu-icon-wrap">
+                <div class="menu-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6"  y="14" width="10" height="10" rx="3" fill="white" fill-opacity="0.9"/>
+                        <rect x="19" y="14" width="10" height="10" rx="3" fill="white" fill-opacity="0.75"/>
+                        <rect x="32" y="14" width="10" height="10" rx="3" fill="white" fill-opacity="0.55"/>
+                        <rect x="6"  y="27" width="10" height="10" rx="3" fill="white" fill-opacity="0.9"/>
+                        <rect x="19" y="27" width="10" height="10" rx="3" fill="white" fill-opacity="0.75"/>
+                        <rect x="32" y="27" width="10" height="10" rx="3" fill="white" fill-opacity="0.30"/>
+                        <path d="M38 32 L42 32 M40 30 L42 32 L40 34" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            <h1 class="game-title-hero">What Comes Next?</h1>
+
+            <!-- Skill / topic tag badges -->
+            <div class="game-tags">
+                <span class="game-tag">🧩 Pattern Recognition</span>
+                <span class="game-tag">🧠 Working Memory</span>
+                <span class="game-tag">⚡ Processing Speed</span>
+            </div>
+
+            <p class="game-description">Train your memory and pattern recognition skills by finding the next item in a sequence.</p>
+        </div>
+
+        <!-- Two-column cards -->
+        <div class="menu-cards">
+
+            <!-- How To Play -->
+            <div class="menu-card">
+                <div class="menu-card-header">
+                    <span class="menu-card-icon">📖</span>
+                    <h3>How To Play</h3>
+                </div>
+                <div class="instruction">
+                    <span class="step-num">1</span>
+                    <span><strong>Look</strong> carefully at the sequence shown on screen.</span>
+                </div>
+                <div class="instruction" style="margin-top:14px">
+                    <span class="step-num">2</span>
+                    <span><strong>Choose</strong> the correct next item using LEFT or RIGHT.</span>
+                </div>
+                <div class="instruction" style="margin-top:14px">
+                    <span class="step-num">3</span>
+                    <span><strong>Answer quickly</strong> to score more points each round.</span>
+                </div>
+            </div>
+
+            <!-- Level Selection -->
+            <div class="menu-card">
+                <div class="menu-card-header">
+                    <span class="menu-card-icon">🏆</span>
+                    <h3>Select Level</h3>
+                </div>
+                <div class="levels-grid">
+                    <button class="level-button" data-level="0">
+                        <span class="level-num">1</span>
+                        <span class="level-lbl">Beginner</span>
+                    </button>
+                    <button class="level-button" data-level="1">
+                        <span class="level-num">2</span>
+                        <span class="level-lbl">Easy</span>
+                    </button>
+                    <button class="level-button" data-level="2">
+                        <span class="level-num">3</span>
+                        <span class="level-lbl">Medium</span>
+                    </button>
+                    <button class="level-button" data-level="3">
+                        <span class="level-num">4</span>
+                        <span class="level-lbl">Hard</span>
+                    </button>
+                    <button class="level-button" data-level="4">
+                        <span class="level-num">5</span>
+                        <span class="level-lbl">Expert</span>
+                    </button>
+                    <button class="level-button" data-level="5">
+                        <span class="level-num">6</span>
+                        <span class="level-lbl">Master</span>
+                    </button>
+                </div>
+            </div>
+
+        </div><!-- /menu-cards -->
+    </div><!-- /menu-inner -->
+</div><!-- /menu-screen -->
+
+
+<!-- ===================== GAME SCREEN ===================== -->
+<div id="game-screen">
+
+    <!-- Title Strip: game name left, stats right — mirrors Game 16 topbar -->
+    <div id="title-strip">
+        <h1 id="title">What Comes Next</h1>
+        <div id="stats-bar">
+            <p id="score">Score: 0</p>
+            <p id="question-number">Round: 1/15</p>
+        </div>
+    </div>
+
+    <div id="game-inner">
+        <div id="game-card">
+
+            <!-- Level + Best Score + Mistakes badges -->
+            <div id="top-info">
+                <p id="level">Level: 1</p>
+                <div id="best-score">Best Score: 0</div>
+                <p id="mistakes">Mistakes: 0/5</p>
+            </div>
+
+            <!-- Timer -->
+            <div id="timer-container">
+                <div id="timer-bar"></div>
+            </div>
+            <p id="timer-text"></p>
+
+            <!-- Question -->
+            <h2 id="question"></h2>
+
+            <!-- Feedback message -->
+            <p id="message"></p>
+
+            <!-- Answer Buttons -->
+            <div id="buttons-container">
+                <button id="left-button"></button>
+                <button id="right-button"></button>
+            </div>
+
+            <!-- Cognitive orientation labels -->
+            <div id="button-labels">
+                <span class="left-label">← LEFT BUTTON (ORANGE)</span>
+                <span class="right-label">RIGHT BUTTON (BLUE) →</span>
+            </div>
+
+            <!-- End-of-level controls -->
+            <div id="end-btn-row">
+                <button id="next-level-button">Next Level →</button>
+                <button id="restart-button">↺ Restart Game</button>
+                <button id="menu-button">☰ Back to Menu</button>
+            </div>
+
+            <!-- Final score (populated by JS) -->
+            <p id="final-score"></p>
+
+        </div><!-- /game-card -->
+    </div><!-- /game-inner -->
+</div><!-- /game-screen -->
+<audio id="correct-sound" src="correct.mp3"></audio>
+<audio id="wrong-sound" src="wrong.mp3"></audio>
+<audio id="level-sound" src="levelcomplete.mp3"></audio>
+<audio id="gameover-sound" src="gameover.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
