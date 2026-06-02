@@ -423,13 +423,28 @@ let timer;
 
 let timeLeft;
 
-let bestScore =Number(localStorage.getItem("bestScore")) || 0;
+let bestScore =Number(localStorage.getItem("bestScoreGame16")) || 0;
 bestScoreText.textContent ="Best Score: " + bestScore;
 
 let currentQuestion = 0;
 
 let questions = levels[currentLevel];
 
+function updateBestScore()
+{
+    if(score > bestScore)
+    {
+        bestScore = score;
+
+        localStorage.setItem(
+        "bestScoreGame16",
+        bestScore
+        );
+
+        bestScoreText.textContent =
+        "Best Score: " + bestScore;
+    }
+}
 
 function loadQuestion()
 
@@ -572,6 +587,8 @@ if(correctSide === "left")
     score += 2;
     correctSound.play();
 
+    updateBestScore();
+
     let responseTime =
     (Date.now() - questionStartTime) / 1000;
 
@@ -580,6 +597,7 @@ if(correctSide === "left")
     if(currentLevel >= 2 && responseTime <= 3)
     {
         score++;
+        updateBestScore();
 
         bonusText =
         "<br><br>⚡ Fast Bonus +1";
@@ -639,6 +657,15 @@ else
 
         wrongSound.play();
 
+        if(score > bestScore)
+                {
+                bestScore = score;
+
+                localStorage.setItem("bestScoreGame16", bestScore);
+
+                bestScoreText.textContent ="Best Score: " + bestScore;
+                }
+
         finalScoreText.innerHTML ="You made 5 mistakes in this level." +"<br><br>" +"Final Score: " + score;
 
         leftButton.style.display = "none";
@@ -695,6 +722,8 @@ if(correctSide === "right")
     score += 2;
     correctSound.play();
 
+    updateBestScore();
+
     let responseTime =
     (Date.now() - questionStartTime) / 1000;
 
@@ -703,6 +732,8 @@ if(correctSide === "right")
     if(currentLevel >= 2 && responseTime <= 3)
     {
         score++;
+
+        updateBestScore();
 
         bonusText =
         "<br><br>⚡ Fast Bonus +1";
@@ -764,6 +795,15 @@ else
 
         wrongSound.play();
 
+        if(score > bestScore)
+                {
+                bestScore = score;
+
+                localStorage.setItem("bestScoreGame16", bestScore);
+
+                bestScoreText.textContent ="Best Score: " + bestScore;
+                }
+
         finalScoreText.innerHTML ="You made 5 mistakes in this level." +"<br><br>" +"Final Score: " + score;
 
         leftButton.style.display = "none";
@@ -812,6 +852,14 @@ setTimeout(function()
 
 restartButton.addEventListener("click", function()
 {
+    if(score > bestScore)
+                {
+                bestScore = score;
+
+                localStorage.setItem("bestScoreGame16", bestScore);
+
+                bestScoreText.textContent ="Best Score: " + bestScore;
+                }
     currentQuestion = 0;
 
     score = 0;
@@ -844,7 +892,14 @@ restartButton.addEventListener("click", function()
 nextLevelButton.addEventListener("click",function()
 
 {
+    if(score > bestScore)
+                {
+                bestScore = score;
 
+                localStorage.setItem("bestScoreGame16", bestScore);
+
+                bestScoreText.textContent ="Best Score: " + bestScore;
+                }
     questions = levels[currentLevel];
     currentQuestion = 0;
     leftButton.style.display = "";
@@ -973,6 +1028,15 @@ function startTimer(seconds)
             {
             questionText.textContent =
             "❌ Game Over";
+
+            if(score > bestScore)
+                {
+                bestScore = score;
+
+                localStorage.setItem("bestScoreGame16", bestScore);
+
+                bestScoreText.textContent ="Best Score: " + bestScore;
+                }
 
             finalScoreText.innerHTML =
             "You made 5 consecutive incorrect answers." +
